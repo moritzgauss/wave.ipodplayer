@@ -297,7 +297,7 @@
         </div>
     </div>
 
-    <script>
+     <script>
         const apiKey = 'AIzaSyAqVgTzwTuKZwf74ViqORE1zLxiiVFLhqw';
         const playlistId = 'PLj75rJl4M95B5R8FvqrETxJpNg78ZzLbf';
         const playPauseButton = document.getElementById('play-pause-button');
@@ -355,8 +355,7 @@
                     iframe.requestFullscreen();
                 } else if (iframe.mozRequestFullScreen) {
                     iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) {
-                    iframe.webkitRequestFullscreen();
+                } else if (iframe.webkitRequestFullscreen) {                    iframe.webkitRequestFullscreen();
                 } else if (iframe.msRequestFullscreen) {
                     iframe.msRequestFullscreen();
                 }
@@ -385,7 +384,7 @@
 
         function fetchVideoTitles(apiKey, playlistId, callback) {
             console.log('Fetching video titles...');
-            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=&key=`)
+            fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}`)
                 .then(response => {
                     console.log('API response received.');
                     return response.json();
@@ -410,8 +409,8 @@
             const currentIndex = player.getPlaylistIndex();
             console.log('Current index:', currentIndex);
             if (videoTitles.length > 0) {
-                currentSongElement.textContent = videoTitles[currentIndex] || 'Not Available';
-                nextSongElement.textContent = videoTitles[(currentIndex + 1) % videoTitles.length] || 'Not Available';
+                currentSongElement.textContent = `${videoTitles[currentIndex]}`;
+                nextSongElement.textContent = `${videoTitles[(currentIndex + 1) % videoTitles.length]}`;
             } else {
                 currentSongElement.textContent = 'Not Available';
                 nextSongElement.textContent = 'Not Available';
