@@ -329,25 +329,25 @@
                 updateSongInfo();
             });
 
-            playPauseButton.addEventListener('click', () => {
-                if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-                    player.pauseVideo();
-                    playPauseButton.textContent = 'play_arrow';
-                } else {
-                    player.playVideo();
-                    playPauseButton.textContent = 'pause';
-                }
-            });
+    playPauseButton.addEventListener('click', () => {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+            playPauseButton.textContent = 'play_arrow'; 
+        } else {
+            player.playVideo();
+            playPauseButton.textContent = 'pause';
+        }
+    });
 
-            muteButton.addEventListener('click', () => {
-                if (player.isMuted()) {
-                    player.unMute();
-                    muteButton.textContent = 'volume_off';
-                } else {
-                    player.mute();
-                    muteButton.textContent = 'volume_up';
-                }
-            });
+    muteButton.addEventListener('click', () => {
+        if (player.isMuted()) {
+            player.unMute();
+            muteButton.textContent = 'volume_off';
+        } else {
+            player.mute();
+            muteButton.textContent = 'volume_up';
+        }
+    });
 
             fullscreenButton.addEventListener('click', () => {
                 const iframe = document.getElementById('custom-video');
